@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Doctour Project | Frontend Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#ffffff',
+            foreground: '#1d1d1f',
+            muted: {
+              DEFAULT: '#f5f5f7',
+              foreground: '#86868b'
+            },
+            secondary: {
+              DEFAULT: '#f5f5f7',
+              foreground: '#1d1d1f'
+            },
+            accent: {
+              DEFAULT: '#0071E3',
+              foreground: '#ffffff'
+            },
+            border: '#d2d2d7',
+            destructive: '#ff3b30'
+          },
+          fontFamily: {
+            sans: ['Google Sans Flex', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Google Sans Flex';
+      src: url('/fonts/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf') format('truetype');
+      font-weight: 100 1000;
+      font-stretch: 25% 151%;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Google Sans Flex', sans-serif;
+      font-optical-sizing: auto;
+      font-variation-settings: 'slnt' 0, 'wdth' 100, 'GRAD' 0, 'ROND' 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 200;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      line-height: 1.75;
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .text-balance {
+      text-wrap: balance;
+    }
+  </style>
+</head>
+<body class="bg-background text-foreground selection:bg-accent/20 selection:text-accent">
+  <nav class="fixed top-0 z-50 w-full border-b border-border/30 bg-background/80 backdrop-blur-xl">
+    <div class="container flex h-16 items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20a14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+        </div>
+        <span class="text-base font-bold tracking-tight">The Doctour Project</span>
+      </a>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="#price-gap" class="text-sm font-medium text-muted-foreground hover:text-foreground">Price Gap</a>
+        <a href="#network" class="text-sm font-medium text-muted-foreground hover:text-foreground">Our Network</a>
+        <a href="#services" class="text-sm font-medium text-muted-foreground hover:text-foreground">Services</a>
+        <a href="#how-it-works" class="text-sm font-medium text-muted-foreground hover:text-foreground">How It Works</a>
+      </div>
+
+      <a href="#audit-form" class="rounded-full bg-foreground px-5 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90">Audit My Quote</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+    <section class="relative flex min-h-[90vh] items-center overflow-hidden px-6 text-center">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,113,227,0.08),transparent_50%),linear-gradient(to_bottom,#ffffff,rgba(245,245,247,0.7))]"></div>
+      <div class="container">
+        <div class="mx-auto flex max-w-5xl flex-col items-center gap-6">
+          <span class="inline-flex items-center rounded-full border border-border bg-white/80 px-4 py-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            World-Class Dental Care in India
+          </span>
+          <h1 class="text-balance">The Doctour Project.</h1>
+          <div class="max-w-3xl">
+            <span class="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-6 py-2 text-sm font-medium text-accent">
+              Phase 1: Global Dental Corridor
+            </span>
+            <p class="mt-6 text-xl text-muted-foreground md:text-2xl">
+              Don&apos;t settle for your current dental quote. Get a free clinical second opinion from India&apos;s top MDS specialists.
+            </p>
+          </div>
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row">
+            <a href="#audit-form" class="inline-flex h-14 items-center justify-center rounded-full bg-foreground px-10 text-base font-bold text-white shadow-xl transition-transform hover:scale-[1.02]">
+              Audit My Dental Quote
+            </a>
+            <a href="#network" class="inline-flex h-14 items-center justify-center rounded-full border border-border px-10 text-base font-bold hover:bg-muted">
+              Explore the Network
+            </a>
+          </div>
+          <p class="mt-4 text-sm font-medium text-muted-foreground">Takes only 30 seconds</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="price-gap">
+      <div class="container">
+        <div class="mb-16 text-center">
+          <h2>World-class healthcare at up to 50% less cost.</h2>
+          <p class="mt-4 text-muted-foreground">Same global implant brands. Same clinical protocols. A fraction of the cost.</p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-border/30 bg-secondary/50">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-border/30 bg-muted/50">
+                  <th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Treatment</th>
+                  <th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Local Market Price</th>
+                  <th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-muted-foreground">India Partner</th>
+                  <th class="px-8 py-5 text-xs font-bold uppercase tracking-wider text-accent text-right">You Save</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/30">
+                <tr>
+                  <td class="px-8 py-6 text-lg font-bold">3 Dental Implants (with crowns)</td>
+                  <td class="px-8 py-6 text-lg text-muted-foreground">£9,000</td>
+                  <td class="px-8 py-6 text-lg font-bold">£2,000</td>
+                  <td class="px-8 py-6 text-right text-xl font-bold text-accent">£7,000</td>
+                </tr>
+                <tr>
+                  <td class="px-8 py-6 text-lg font-bold">Full Arch Implants (All-on-6)</td>
+                  <td class="px-8 py-6 text-lg text-muted-foreground">£18,000</td>
+                  <td class="px-8 py-6 text-lg font-bold">£3,500</td>
+                  <td class="px-8 py-6 text-right text-xl font-bold text-accent">£14,500</td>
+                </tr>
+                <tr>
+                  <td class="px-8 py-6 text-lg font-bold">Full Mouth / Smile Restoration</td>
+                  <td class="px-8 py-6 text-lg text-muted-foreground">£30,000</td>
+                  <td class="px-8 py-6 text-lg font-bold">£7,000</td>
+                  <td class="px-8 py-6 text-right text-xl font-bold text-accent">£23,000</td>
+                </tr>
+                <tr>
+                  <td class="px-8 py-6 text-lg font-bold">Aligners (full treatment)</td>
+                  <td class="px-8 py-6 text-lg text-muted-foreground">£6,000</td>
+                  <td class="px-8 py-6 text-lg font-bold">£3,000</td>
+                  <td class="px-8 py-6 text-right text-xl font-bold text-accent">£3,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-2 text-sm font-medium text-muted-foreground">
+          <p>• Local-market prices are indicative based on private care averages.</p>
+          <p>• India partner prices represent base rates; final cost may vary by brand choice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background">
+      <div class="container">
+        <div class="mb-16 max-w-4xl">
+          <h2 class="mb-6">Traceable Surgery.<br /><span class="text-muted-foreground">Documented Security.</span></h2>
+          <p class="max-w-2xl text-xl text-muted-foreground">We&apos;ve built the infrastructure that many private care systems lack and "dental tourism" ignores. Your treatment is backed by a clinical and financial safety net.</p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="rounded-3xl border border-border/30 bg-secondary/50 p-10">
+            <div class="mb-8 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-border/10 bg-background">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-muted-foreground">Clinical Asset</span>
+            </div>
+            <h3 class="mb-4">Your Lifelong Maintenance Blueprint</h3>
+            <p class="mb-10 text-muted-foreground">Most dental tourism ends at the airport. Ours begins with your Continuum of Care. Every Doctour patient receives a Digital Passport.</p>
+            <div class="glass rounded-3xl border border-white/40 p-8 shadow-2xl">
+              <div class="mb-12 flex items-start justify-between">
+                <div>
+                  <p class="mb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Patient ID</p>
+                  <p class="font-mono text-sm font-medium">DT-2026-INT-882</p>
+                </div>
+                <span class="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent">
+                  <span class="h-1.5 w-1.5 rounded-full bg-accent"></span> Live Document
+                </span>
+              </div>
+              <div class="grid grid-cols-2 gap-8 mb-8">
+                <div>
+                  <p class="mb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">System</p>
+                  <p class="text-sm font-semibold">Straumann BLX™</p>
+                </div>
+                <div>
+                  <p class="mb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Torque Value</p>
+                  <p class="text-sm font-semibold">35 Ncm</p>
+                </div>
+                <div>
+                  <p class="mb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Serial Number</p>
+                  <p class="font-mono text-sm">AU-9921-XQ</p>
+                </div>
+                <div>
+                  <p class="mb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Connection</p>
+                  <p class="text-sm font-semibold">CrossFit®</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between border-t border-border/30 pt-6">
+                <div class="flex -space-x-2">
+                  <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg></div>
+                  <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg></div>
+                  <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg></div>
+                </div>
+                <span class="text-[10px] font-bold text-muted-foreground">Verified Osseointegration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-border/30 bg-secondary/50 p-10">
+            <div class="mb-8 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-border/10 bg-background">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-muted-foreground">Risk Mitigation</span>
+            </div>
+            <h3 class="mb-4">Result-Triggered Payments</h3>
+            <p class="mb-10 text-muted-foreground">Eliminate the risk of paying for a smile you haven&apos;t seen. Your funds are held in a regulated escrow account.</p>
+            <div class="relative pl-8">
+              <div class="absolute left-[11px] top-2 bottom-2 w-[2px] bg-border/30"></div>
+              <div class="space-y-12">
+                <div class="relative">
+                  <div class="absolute -left-[29px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-border">
+                    <div class="h-2 w-2 rounded-full bg-accent"></div>
+                  </div>
+                  <div>
+                    <div class="mb-1 flex items-center gap-3">
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-accent">Phase 1</span>
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">• 10% Retainer</span>
+                    </div>
+                    <h4 class="mb-2 text-xl font-bold">Pre-Departure Triage</h4>
+                    <p class="text-sm text-muted-foreground">Once specialist approves suitability.</p>
+                  </div>
+                </div>
+                <div class="relative">
+                  <div class="absolute -left-[29px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-border">
+                    <div class="h-2 w-2 rounded-full bg-border"></div>
+                  </div>
+                  <div>
+                    <div class="mb-1 flex items-center gap-3">
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-accent">Phase 2</span>
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">• 40% Milestone</span>
+                    </div>
+                    <h4 class="mb-2 text-xl font-bold">The Surgical Step</h4>
+                    <p class="text-sm text-muted-foreground">Released after titanium posts are verified.</p>
+                  </div>
+                </div>
+                <div class="relative">
+                  <div class="absolute -left-[29px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-border">
+                    <div class="h-2 w-2 rounded-full bg-border"></div>
+                  </div>
+                  <div>
+                    <div class="mb-1 flex items-center gap-3">
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-accent">Phase 3</span>
+                      <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">• 50% Completion</span>
+                    </div>
+                    <h4 class="mb-2 text-xl font-bold">The Final Fitting</h4>
+                    <p class="text-sm text-muted-foreground">Released when satisfied.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 border-t border-border/30 pt-8">
+              <div class="flex items-center justify-between gap-4">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Consumer Protection</p>
+                <div class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span class="text-sm font-semibold">Regulated Escrow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="network" class="bg-secondary/30">
+      <div class="container">
+        <div class="mb-16 text-center">
+          <h2>Vetted Excellence.</h2>
+          <p class="mt-4 text-muted-foreground">Only the top 1% of clinics selected across India's medical hubs.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <article class="group overflow-hidden rounded-3xl border border-border/30 bg-background transition-all hover:shadow-2xl">
+            <div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&q=80&w=800" alt="Mumbai" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold">Mumbai</h3>
+              <span class="mt-2 mb-4 inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent">Aesthetic Hub</span>
+              <p class="text-muted-foreground">Specialists in digital CAD/CAM smile design.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-3xl border border-border/30 bg-background transition-all hover:shadow-2xl">
+            <div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&q=80&w=800" alt="Delhi" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold">Delhi</h3>
+              <span class="mt-2 mb-4 inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent">Surgical Hub</span>
+              <p class="text-muted-foreground">PhD-qualified implantologists with extended warranties.</p>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-3xl border border-border/30 bg-background transition-all hover:shadow-2xl">
+            <div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=800" alt="Bangalore" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold">Bangalore</h3>
+              <span class="mt-2 mb-4 inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent">Tech Hub</span>
+              <p class="text-muted-foreground">Home to cutting-edge diagnostic surgical systems.</p>
+            </div>
+          </article>
+        </div>
+        <div class="mt-12 flex flex-wrap justify-center gap-8 text-sm font-bold">
+          <div class="flex items-center gap-2"><span class="text-accent">✓</span> Top 1% clinics</div>
+          <div class="flex items-center gap-2"><span class="text-accent">✓</span> MDS Specialists</div>
+          <div class="flex items-center gap-2"><span class="text-accent">✓</span> Global systems</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="mb-16 text-center">
+          <h2>Premium Transformations.</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl border border-border/30 bg-secondary/30 p-10 transition-all hover:bg-muted/50">
+            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-border/10 bg-background shadow-sm text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"></path></svg>
+            </div>
+            <span class="mb-2 inline-flex rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-bold text-accent">All-on-4® / All-on-6®</span>
+            <h3 class="mb-3 text-2xl font-bold">Full Mouth Restorations</h3>
+            <p class="text-muted-foreground">Complete smile reconstruction.</p>
+          </article>
+          <article class="rounded-3xl border border-border/30 bg-secondary/30 p-10 transition-all hover:bg-muted/50">
+            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-border/10 bg-background shadow-sm text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10.5A4.5 4.5 0 0 1 9.5 6c1.6 0 2.9.9 3.5 2 0.6-1.1 1.9-2 3.5-2A4.5 4.5 0 0 1 19 10.5C19 16.5 12 21 12 21z"></path></svg>
+            </div>
+            <span class="mb-2 inline-flex rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-bold text-accent">Zirconia & E-Max</span>
+            <h3 class="mb-3 text-2xl font-bold">Premium Smile Makeovers</h3>
+            <p class="text-muted-foreground">Designed for natural aesthetics.</p>
+          </article>
+          <article class="rounded-3xl border border-border/30 bg-secondary/30 p-10 transition-all hover:bg-muted/50">
+            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-border/10 bg-background shadow-sm text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"></path><path d="M19 12l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"></path></svg>
+            </div>
+            <span class="mb-2 inline-flex rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-bold text-accent">Zygomatic Surgery</span>
+            <h3 class="mb-3 text-2xl font-bold">Advanced Implantology</h3>
+            <p class="text-muted-foreground">Complex solutions for bone loss.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="bg-foreground py-32 text-white">
+      <div class="container">
+        <div class="mb-16 text-center">
+          <h2 class="text-white">The Precision Bridge.</h2>
+          <p class="mt-4 text-white/70">Seamlessly connecting you to India's elite dental surgeons.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-4">
+          <div>
+            <div class="mb-4 text-xl font-bold text-accent">01</div>
+            <h3 class="mb-2 text-xl font-bold text-white">Upload Quote</h3>
+            <p class="text-sm text-white/60">Securely upload your existing dental quote.</p>
+          </div>
+          <div>
+            <div class="mb-4 text-xl font-bold text-accent">02</div>
+            <h3 class="mb-2 text-xl font-bold text-white">MDS Audit</h3>
+            <p class="text-sm text-white/60">A Master of Dental Surgery specialist reviews your case.</p>
+          </div>
+          <div>
+            <div class="mb-4 text-xl font-bold text-accent">03</div>
+            <h3 class="mb-2 text-xl font-bold text-white">Second Opinion</h3>
+            <p class="text-sm text-white/60">Receive a clinical audit and a fixed-price alternative.</p>
+          </div>
+          <div>
+            <div class="mb-4 text-xl font-bold text-accent">04</div>
+            <h3 class="mb-2 text-xl font-bold text-white">Clinic Connect</h3>
+            <p class="text-sm text-white/60">Direct connection with the clinic's manager.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-secondary/30">
+      <div class="container">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="rounded-3xl border border-border/30 bg-background p-12">
+            <h3 class="mb-6">Why India?</h3>
+            <div class="space-y-4 text-base font-medium">
+              <div class="flex items-center gap-3"><span class="text-accent">✓</span> NABH-accredited Clinical Excellence</div>
+              <div class="flex items-center gap-3"><span class="text-accent">✓</span> Global implant systems (Straumann, Nobel)</div>
+              <div class="flex items-center gap-3"><span class="text-accent">✓</span> Masters of Dental Surgery (MDS) only</div>
+              <div class="flex items-center gap-3"><span class="text-accent">✓</span> Priority travel coordination</div>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-destructive/20 bg-destructive/5 p-12">
+            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-destructive/10 text-destructive">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86l-8.5 14.72A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.71-3.08l-8.5-14.72a2 2 0 0 0-3.42 0z"></path></svg>
+            </div>
+            <h3 class="mb-4">Avoid the Shortcut.</h3>
+            <p class="mb-8 text-muted-foreground">India focuses on preservation, not "Turkey Teeth." We audit quotes to ensure your clinical integrity isn't sacrificed for price.</p>
+            <a href="#audit-form" class="inline-flex rounded-full border border-destructive/30 px-8 py-4 font-bold hover:bg-destructive/10">See Risk Assessment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="overflow-hidden rounded-3xl border border-border/30 bg-secondary/30 p-12 md:p-24">
+          <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span class="mb-6 inline-flex rounded-full border border-accent/20 bg-accent/10 px-4 py-1 text-sm font-medium text-accent">AI Preview</span>
+              <h2 class="mb-6">Visualize Your Future.</h2>
+              <p class="mb-8 text-xl text-muted-foreground">Upload a selfie and preview your transformation in 15 seconds.</p>
+              <div class="flex flex-col gap-4 sm:flex-row">
+                <label class="inline-flex cursor-pointer items-center justify-center rounded-full bg-foreground px-10 py-4 font-bold text-white transition-opacity hover:opacity-90">
+                  Upload Selfie
+                  <input type="file" accept="image/*" class="hidden" />
+                </label>
+              </div>
+            </div>
+            <div class="aspect-square overflow-hidden rounded-3xl border border-border/30 bg-background">
+              <div class="flex h-full flex-col items-center justify-center gap-4 text-muted-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 opacity-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <p class="text-sm font-medium">Preview Area</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audit-form">
+      <div class="container max-w-4xl">
+        <div class="mb-12 text-center">
+          <h2>Start Your Clinical Audit.</h2>
+          <p class="mt-4 text-muted-foreground">Free second opinion from an Indian MDS specialist.</p>
+        </div>
+        <form class="grid gap-6 rounded-3xl border border-border/30 bg-secondary/20 p-8 md:p-12">
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="ml-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
+              <input class="w-full rounded-2xl bg-background p-4 outline-none ring-1 ring-border/30 focus:ring-accent transition-all" placeholder="John Doe" />
+            </div>
+            <div class="space-y-2">
+              <label class="ml-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</label>
+              <input type="email" class="w-full rounded-2xl bg-background p-4 outline-none ring-1 ring-border/30 focus:ring-accent transition-all" placeholder="john@example.com" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="ml-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Current Quote / File</label>
+            <div class="cursor-pointer rounded-2xl border border-dashed border-border/50 p-10 text-center transition-all hover:border-accent hover:bg-accent/5">
+              <p class="font-bold">Choose file or drag here</p>
+              <p class="mt-1 text-xs text-muted-foreground">PDF, JPG, or DICOM</p>
+            </div>
+          </div>
+          <a href="#" class="inline-flex w-full items-center justify-center rounded-full bg-accent py-6 text-xl font-bold text-white transition-opacity hover:opacity-90">Submit for Audit</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-border/30 bg-background py-20">
+    <div class="container">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20a14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            <span class="text-xl font-bold">The Doctour Project</span>
+          </div>
+          <p class="mt-6 max-w-sm text-muted-foreground">Bypassing domestic healthcare inflation through vetted international dental networks.</p>
+        </div>
+        <div class="flex gap-16">
+          <div>
+            <h4 class="mb-6 text-[10px] font-bold uppercase tracking-widest">Explore</h4>
+            <ul class="space-y-3 text-sm font-medium text-muted-foreground">
+              <li><a href="#price-gap" class="hover:text-accent">Price Gap</a></li>
+              <li><a href="#network" class="hover:text-accent">Network</a></li>
+              <li><a href="#audit-form" class="hover:text-accent">Audit</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="mb-6 text-[10px] font-bold uppercase tracking-widest">Connect</h4>
+            <ul class="space-y-3 text-sm font-medium text-muted-foreground">
+              <li><a href="#" class="hover:text-accent">Twitter</a></li>
+              <li><a href="#" class="hover:text-accent">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="my-12 h-px bg-border/30"></div>
+      <div class="flex flex-col gap-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground md:flex-row md:justify-between">
+        <p>© 2026 The Doctour Project</p>
+        <div class="flex gap-8">
+          <span>Global Corridor</span>
+          <span>English (International)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
